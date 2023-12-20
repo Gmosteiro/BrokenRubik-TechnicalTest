@@ -36,7 +36,7 @@
         "application": {
             "myaccount": {
                 "files": [
-                    "Modules/RickAndMorty/Templates/gastonm_rickandmortychars_rickandmorty.tpl"
+                    "Modules/RickAndMorty/Templates/gm_rickandmorty_view.tpl"
                 ]
             }
         }
