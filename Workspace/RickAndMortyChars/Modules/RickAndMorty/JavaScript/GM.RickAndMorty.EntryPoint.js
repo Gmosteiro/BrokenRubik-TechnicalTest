@@ -11,14 +11,17 @@ define('GM.RickAndMortyChars.EntryPoint', [
 	return {
 		mountToApp: function mountToApp(container) {
 
-			var layout = container.getComponent('Layout');
+			var PageType = container.getComponent('PageType');
 
-			if (layout) {
-				layout.addChildView('Header.Logo', function () {
-					return new GMRickAndMortyView({ container: container });
-				});
-			}
-
+			PageType.registerPageType({
+				name: 'RickAndMortyView',
+				routes: ['RickAndMortyView'],
+				view: GMRickAndMortyView,
+				defaultTemplate: {
+					name: 'gm_rickandmorty_view.tpl',
+					displayName: 'Rick And Morty Characters'
+				}
+			});
 		}
 	};
 });

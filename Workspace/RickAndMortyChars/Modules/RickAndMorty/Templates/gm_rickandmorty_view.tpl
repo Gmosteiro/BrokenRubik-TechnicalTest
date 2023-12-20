@@ -1,9 +1,10 @@
 <section class="rickandmorty-info-card">
+  {{#each character}}
     <span class="rickandmorty-info-card-content">
-      {{message}}
+      {{name}}
     </span>
+  {{/each}}
 </section>
-
 
 <!--
   Available helpers:

@@ -34,6 +34,8 @@ define(['N/record', 'N/search', 'N/log'], function (record, search, log) {
 
 		const { operation, characterId } = request.parameters;
 
+		log.debug('ManageGetRequest', { operation, characterId })
+
 		if (operation === 'getCharacters') {
 
 			const characters = getCharacters();
@@ -51,6 +53,8 @@ define(['N/record', 'N/search', 'N/log'], function (record, search, log) {
 	const managePostRequest = (request, response) => {
 		try {
 			const { body, operation } = request;
+
+			log.debug('ManagePostRequest', body)
 
 			if (operation === 'editCharacter') {
 
@@ -132,7 +136,6 @@ define(['N/record', 'N/search', 'N/log'], function (record, search, log) {
 			});
 
 			return deleteRecord;
-
 
 		} catch (e) {
 			log.error('Error deleting character', e);

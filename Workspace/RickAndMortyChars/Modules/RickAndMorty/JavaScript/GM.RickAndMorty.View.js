@@ -24,6 +24,7 @@ define('GM.RickAndMorty.View', [
 			var self = this;
 
 			this.model.fetch().done(function (result) {
+				debugger;
 				self.characters = result.characters;
 				self.render();
 			});
@@ -37,7 +38,9 @@ define('GM.RickAndMorty.View', [
 
 		getContext: function getContext() {
 
-			return {};
+			return {
+				characters: this.characters
+			};
 		}
 	});
 });
