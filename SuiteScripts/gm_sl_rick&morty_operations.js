@@ -4,8 +4,6 @@
  * @author gastonmosteiro@hotmail.com
  */
 
-const { get } = require("underscore");
-
 //@ts-check
 
 // @ts-ignore
