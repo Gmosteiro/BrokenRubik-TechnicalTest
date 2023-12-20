@@ -38,13 +38,13 @@ define(['N/record', 'N/search', 'N/log'], function (record, search, log) {
 
 			const characters = getCharacters();
 
-			response.write(JSON.stringify(characters));
+			response.write(JSON.stringify({ characters: characters }));
 
 		} else if (operation === 'getCharacterById') {
 
-			var character = getCharacters(characterId);
+			const character = getCharacters(characterId);
 
-			response.write(JSON.stringify(character));
+			response.write(JSON.stringify({ character: character }));
 		}
 	}
 
@@ -56,7 +56,7 @@ define(['N/record', 'N/search', 'N/log'], function (record, search, log) {
 
 				const { characterId, newValues } = body;
 
-				var editedCharacterId = editCharacter(characterId, newValues);
+				const editedCharacterId = editCharacter(characterId, newValues);
 
 				response.write(JSON.stringify({ editedCharacter: getCharacters(editedCharacterId) }));
 
@@ -64,7 +64,7 @@ define(['N/record', 'N/search', 'N/log'], function (record, search, log) {
 
 				const { characterId } = body;
 
-				var deletedCharacterId = deleteCharacter(characterId);
+				const deletedCharacterId = deleteCharacter(characterId);
 
 				response.write(JSON.stringify({ deletedCharacter: deletedCharacterId }));
 
@@ -72,7 +72,7 @@ define(['N/record', 'N/search', 'N/log'], function (record, search, log) {
 
 				const { characterData } = body;
 
-				var newCharacterId = createCharacter(characterData);
+				const newCharacterId = createCharacter(characterData);
 
 				response.write(JSON.stringify({ newCharacter: getCharacters(newCharacterId) }));
 			}

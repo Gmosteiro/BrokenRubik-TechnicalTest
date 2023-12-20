@@ -1,0 +1,66 @@
+{
+    "name": "RickAndMortyChars",
+    "fantasyName": "RickAndMortyChars",
+    "vendor": "GastonM",
+    "version": "1.0.0",
+    "type": "extension",
+    "target": "SCS,SCA",
+    "target_version": {
+        "SCS": ">=23.1.3",
+        "SCA": ">=23.1.3"
+    },
+    "description": "Wubba lubba dub dub",
+    "skins": [],
+    "assets": {
+        "img": {
+            "files": []
+        },
+        "fonts": {
+            "files": []
+        },
+        "services": {
+            "files": [
+                "services/GM.RickAndMorty.Service.ss"
+            ]
+        }
+    },
+    "sass": {
+        "entry_points": {
+            "myaccount": "Modules/RickAndMorty/Sass/GM_RickAndMorty.scss"
+        },
+        "files": [
+            "Modules/RickAndMorty/Sass/GM_RickAndMorty.scss"
+        ]
+    },
+    "templates": {
+        "application": {
+            "myaccount": {
+                "files": [
+                    "Modules/RickAndMorty/Templates/gastonm_rickandmortychars_rickandmorty.tpl"
+                ]
+            }
+        }
+    },
+    "javascript": {
+        "entry_points": {
+            "myaccount": "Modules/RickAndMorty/JavaScript/GM.RickAndMorty.EntryPoint.js"
+        },
+        "application": {
+            "myaccount": {
+                "files": [
+                    "Modules/RickAndMorty/JavaScript/GM.RickAndMorty.EntryPoint.js",
+                    "Modules/RickAndMorty/JavaScript/GM.RickAndMorty.Model.js",
+                    "Modules/RickAndMorty/JavaScript/GM.RickAndMorty.View.js"
+                ]
+            }
+        }
+    },
+    "ssp-libraries": {
+        "entry_point": "Modules/RickAndMorty/SuiteScript/GM.RickAndMorty.Model.js",
+        "files": [
+            "Modules/RickAndMorty/SuiteScript/GM.RickAndMorty.Model.js",
+            "Modules/RickAndMorty/SuiteScript/GM.RickAndMorty.ServiceController.js"
+        ]
+    },
+    "local_folder": "Workspace/RickAndMortyChars"
+}

@@ -70,7 +70,11 @@ define(['N/search', 'N/record', 'N/runtime', 'N/log', 'N/https'], function (sear
 
 			const createdCharactersCount = getCreatedCharactersCount();
 
-			const characters = JSON.parse(response.body)?.results;
+			const body = JSON.parse(response.body);
+
+			if (createdCharactersCount >= body.info.count) throw 'No characters to create';
+
+			const characters = body.results;
 
 			if (!characters) throw 'No characters found';
 
