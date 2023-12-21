@@ -1,18 +1,48 @@
+<h2 class="rickandmorty-title">
+	{{translate "Rick and Morty Characters"}}
+</h2>
 <section class="rickandmorty-info-card">
-  {{#each character}}
-    <span class="rickandmorty-info-card-content">
-      {{name}}
-    </span>
-  {{/each}}
+	<div>
+		<table style="margin-left: 10%;">
+			<thead>
+				<tr>
+					<th>
+						{{translate "Action"}}
+					</th>
+					<th>
+						{{translate "Id"}}
+					</th>
+					<th>
+						{{translate "Name"}}
+					</th>
+					<th>
+						{{translate "Image"}}
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each characters}}
+				<tr>
+					<td class="rickandmorty-td">
+						<a href="/RickAndMortyDetail/{{id}}" data-toggle="show-in-modal">
+							View
+						</a>
+					</td>
+					<td class="rickandmorty-td">
+						{{id}}
+					</td>
+					<td class="rickandmorty-td">
+						{{name}}
+					</td>
+					<td class="rickandmorty-td">
+						<img style="max-width: 120px" src=" {{image}} " alt=" {{name}} " />
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+		<a href="/RickAndMortyDetail/add" data-toggle="show-in-modal" class="rickandmorty-button">
+			{{translate "Add New"}}
+		</a>
+	</div>
 </section>
-
-<!--
-  Available helpers:
-  {{ getExtensionAssetsPath "img/image.jpg"}} - reference assets in your extension
-  
-  {{ getExtensionAssetsPathWithDefault context_var "img/image.jpg"}} - use context_var value i.e. configuration variable. If it does not exist, fallback to an asset from the extension assets folder
-  
-  {{ getThemeAssetsPath context_var "img/image.jpg"}} - reference assets in the active theme
-  
-  {{ getThemeAssetsPathWithDefault context_var "img/theme-image.jpg"}} - use context_var value i.e. configuration variable. If it does not exist, fallback to an asset from the theme assets folder
--->

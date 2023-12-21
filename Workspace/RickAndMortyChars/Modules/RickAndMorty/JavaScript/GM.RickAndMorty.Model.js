@@ -17,7 +17,7 @@ define("GM.RickAndMorty.Model", ["Backbone", "Utils"], function (
         urlRoot: Utils.getAbsoluteUrl(
             // @ts-ignore
             getExtensionAssetsPath(
-                "services/RickAndMorty.Service.ss"
+                "services/GM.RickAndMorty.Service.ss"
             )
         )
 

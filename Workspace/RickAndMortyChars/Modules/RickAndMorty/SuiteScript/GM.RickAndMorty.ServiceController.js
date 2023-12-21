@@ -12,18 +12,20 @@ define("GM.RickAndMorty.ServiceController", ["ServiceController"], function (
 
 		get: function get() {
 			try {
-				var SL_SCRIPT_ID = "customscript_gm_sl_rick_morty_operations";
-				var SL_DEPLOY_ID = "customdeploy_gm_sl_rick_morty_operations";
 
-				var suiteletUrl = nlapiResolveURL("SUITELET", SL_SCRIPT_ID, SL_DEPLOY_ID, true);
+				var suiteletUrl = nlapiResolveURL("SUITELET", 'customscript_gm_rick_and_morty', 'customdeploy_gm_rick_and_morty', true);
 
 				var operation = this.request.getParameter('operation')
 				var characterId = this.request.getParameter('characterId')
 
+				nlapiLogExecution("ERROR", "operation", operation);
+				nlapiLogExecution("ERROR", "characterID", characterId);
+
 				suiteletUrl += '&operation=' + operation
 				suiteletUrl += characterId ? '&characterId=' + characterId : ''
 
-				var response = nlapiRequestURL(suiteletUrl, null, null, 'GET');
+				nlapiLogExecution("ERROR", "suiteletURl", suiteletUrl);
+				var response = nlapiRequestURL(suiteletUrl);
 
 				if (response.getBody()) {
 					return response.getBody();
@@ -41,14 +43,11 @@ define("GM.RickAndMorty.ServiceController", ["ServiceController"], function (
 		post: function post() {
 			try {
 
-				var SL_SCRIPT_ID = "customscript_gm_sl_rick_morty_operations";
-				var SL_DEPLOY_ID = "customdeploy_gm_sl_rick_morty_operations";
+				var suiteletUrl = nlapiResolveURL("SUITELET", 'customscript_gm_rick_and_morty', 'customdeploy_gm_rick_and_morty', true);
 
-				var suiteletUrl = nlapiResolveURL("SUITELET", SL_SCRIPT_ID, SL_DEPLOY_ID, true);
+				nlapiLogExecution("ERROR", "this.data", this.data.characterData);
 
-				nlapiLogExecution("DEBUG", "this.data", this.data);
-
-				var response = nlapiRequestURL(suiteletUrl, this.data, null, 'POST');
+				var response = nlapiRequestURL(suiteletUrl, this.data.characterData);
 
 				if (response.getBody()) {
 					return response.getBody();
