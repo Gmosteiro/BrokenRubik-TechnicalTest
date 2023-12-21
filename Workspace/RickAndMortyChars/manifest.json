@@ -2,15 +2,14 @@
     "name": "RickAndMortyChars",
     "fantasyName": "RickAndMortyChars",
     "vendor": "GastonM",
-    "version": "1.0.6",
     "type": "extension",
     "target": "SCA,SCS",
     "target_version": {
         "SCA": "",
         "SCS": ""
     },
+    "version": "1.0.8",
     "description": "Wubba lubba dub dub",
-    "skins": [],
     "assets": {
         "img": {
             "files": []
@@ -24,14 +23,6 @@
             ]
         }
     },
-    "sass": {
-        "entry_points": {
-            "myaccount": "Modules/RickAndMorty/Sass/GM_RickAndMorty.scss"
-        },
-        "files": [
-            "Modules/RickAndMorty/Sass/GM_RickAndMorty.scss"
-        ]
-    },
     "templates": {
         "application": {
             "myaccount": {
@@ -41,6 +32,14 @@
                 ]
             }
         }
+    },
+    "sass": {
+        "entry_points": {
+            "myaccount": "Modules/RickAndMorty/Sass/GM_RickAndMorty.scss"
+        },
+        "files": [
+            "Modules/RickAndMorty/Sass/GM_RickAndMorty.scss"
+        ]
     },
     "javascript": {
         "entry_points": {
@@ -62,6 +61,5 @@
         "files": [
             "Modules/RickAndMorty/SuiteScript/GM.RickAndMorty.ServiceController.js"
         ]
-    },
-    "local_folder": "Workspace/RickAndMortyChars"
+    }
 }

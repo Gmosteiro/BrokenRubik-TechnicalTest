@@ -89,7 +89,13 @@
 				{{translate "Update Character"}}
 				{{/if}}
 			</button>
+			{{#if isCreate}}
 
+			{{else}}
+			<button type="button" value="{{character.id}}" data-action="deleteCharacter"
+				class="rickandmorty-button-cancel">
+				{{translate "Delete"}}
+				{{/if}}
 		</div>
 
 	</form>

@@ -22,26 +22,32 @@ define('GM.RickAndMorty.View', [
 		initialize: function (options) {
 			var self = this;
 
+			Backbone.getAllCharacters = function () {
+				this.model = new RickAndMortyModel();
+
+				this.model.fetch({
+					data: {
+						operation: 'getCharacters'
+					}
+				}).done(function (result) {
+					self.characters = result.characters;
+					self.render();
+				}).catch(function (error) {
+					console.error(error);
+				});
+			}
+
 			Backbone.on('getFormData', function (data) {
 				self.characterData = data;
 				self.render()
 			});
 
-			this.model = new RickAndMortyModel();
+
+			Backbone.getAllCharacters();
 
 
-			this.model.fetch({
-				data: {
-					operation: 'getCharacters'
-				}
-			}).done(function (result) {
-				self.characters = result.characters;
-				self.render();
-			}).catch(function (error) {
-				;
-				console.error(error);
-			});
 		},
+
 
 		events: {},
 
@@ -56,21 +62,19 @@ define('GM.RickAndMorty.View', [
 		},
 
 		createOrUpdateCharacter: function createOrUpdateCharacter(data, self) {
-
 			if (!data) return;
+			self.characterData = false;
 
-			data.operation = data.characterId ? 'editCharacter' : 'createCharacter';
+			data.operation = data.delete ? 'deleteCharacter' : (data.characterId ? 'editCharacter' : 'createCharacter');
 
 			this.model = new RickAndMortyModel();
+
 
 			this.model.save({
 				async: true,
 				characterData: JSON.stringify(data)
 			}).done(function (result) {
-				self.characterData = false;
-				self.characters.push(result.newCharacter);
-				self.render()
-			}).catch(function (error) {
+				Backbone.getAllCharacters();
 
 			});
 		},

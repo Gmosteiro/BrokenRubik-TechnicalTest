@@ -47,7 +47,7 @@
 }
 
 .rickandmorty-button-cancel {
-	@extend .rickandmorty-button;
+	@extend .rickandmorty-button-accept;
 	background: orange;
 }
 

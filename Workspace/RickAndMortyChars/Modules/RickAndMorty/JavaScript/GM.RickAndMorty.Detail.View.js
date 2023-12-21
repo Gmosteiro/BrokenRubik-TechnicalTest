@@ -47,14 +47,28 @@ define('GM.RickAndMorty.Detail.View', [
 		},
 
 		events: {
-			'submit form': 'saveForm'
+			'submit form': 'saveForm',
+			'click [data-action="deleteCharacter"]': 'deleteCharacter'
 		},
 
 		bindings: {},
 
 		childViews: {},
 
+		deleteCharacter: function deleteCharacter(e) {
+
+			var characterId = e.target.value
+			var formData = {};
+
+
+			formData.delete = true;
+			formData.characterId = characterId;
+
+			Backbone.trigger('getFormData', formData);
+		},
+
 		saveForm: function saveForm(e) {
+
 
 			var $form = this.$(e.target)
 			var formData = $form.serializeObject();
